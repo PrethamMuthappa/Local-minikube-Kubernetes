@@ -19,7 +19,7 @@ Currently using Minikube
 > Also create a basic docker image of a basic project for learing and seeing kubernetes in action! In my case i dockerized a astro application
 
 
-### Instial steps and some commands
+### Initial steps and some commands
 
 
 ``` bash
@@ -30,5 +30,14 @@ kubectl get pods # To check if any pods exist
 
 ```
 
+In kubernetes you write all your deployments in YAML Files
 
+We first will create a smalled pod in kubernetes 
 
+>Create a pods.yaml file 
+
+``` bash
+kubectl apply -f pods.yaml 
+kubectl get pods
+
+```
