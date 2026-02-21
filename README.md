@@ -41,3 +41,34 @@ kubectl apply -f pods.yaml
 kubectl get pods
 
 ```
+Here we have created a sucessfully deployed our first kubernetes pods, we can check this but running the get pods commands and can also see in podman too
+
+In the next step we try to create a deployment with replicas
+
+> create deps.yaml
+
+``` bash
+kubectl apply -f deps.yaml
+kubectl get deployments
+kubectl get pods                          # see 2 pods running
+kubectl rollout status deployment/my-app
+
+# Scale on the fly
+kubectl scale deployment my-app --replicas=4
+
+# Update the image (triggers rolling update)
+kubectl set image deployment/my-app my-app=tidersky/ass:li
+
+# Rollback if something breaks
+kubectl rollout undo deployment/my-app
+kubectl rollout history deployment/my-app
+
+```
+
+Scaling can be done with scale command and after that we can run get pods command and see we will be having multiple pods
+
+### service
+
+Now that we have everything running we need to expose the pods so that we can access them through our browser
+
+
