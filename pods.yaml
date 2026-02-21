@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: testy
+  labels:
+    app: testy
+spec:
+  containers:
+    - name: testy
+      image: tidersky/ass:trixie
+      ports:
+        - containerPort: 80
