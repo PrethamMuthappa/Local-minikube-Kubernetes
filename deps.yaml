@@ -1,0 +1,27 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testy
+spec:
+  replicas: 2                    # run 2 copies
+  selector:
+    matchLabels:
+      app: testy                # must match template labels
+  template:                      # this is the Pod blueprint
+    metadata:
+      labels:
+        app: testy
+    spec:
+      containers:
+        - name: testy
+          image: tidersky/ass:trixie
+          ports:
+            - containerPort: 4321
+          resources:             # always set these!
+            requests:
+              memory: "1000Mi"
+              cpu: "300m"
+            limits:
+              memory: "2000Mi"
+              cpu: "550m"
